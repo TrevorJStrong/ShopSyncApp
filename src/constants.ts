@@ -39,18 +39,27 @@ export const flex_default = {
 
 export const flex_center = {
   flex: 1,
+  width: '100%',
   alignItems: 'center',
   justifyContent: 'center',
 };
 
 export const flex_between = {
   flex: 1,
+  width: '100%',
   alignItems: 'center',
   justifyContent: 'space-between',
 };
 
 export const flex_bottom = {
   flex: 1,
+  width: '100%',
   alignItems: 'center',
   justifyContent: 'flex-end',
+};
+
+export const align_middle = {
+  justifyContent: 'center',
+  alignSelf: 'center',
+  width: '90%',
 };

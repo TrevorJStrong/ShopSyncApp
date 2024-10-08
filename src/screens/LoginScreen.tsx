@@ -1,23 +1,22 @@
 import React from 'react';
 
-import {Alert, SafeAreaView, View} from 'react-native';
+import {Alert, SafeAreaView} from 'react-native';
 
 import {useAuthStore} from '../hooks/useStore';
 import {supabase} from '../utils/supabase';
-import {flex_center, margin} from '../constants';
-import Logo from '../components/Logo';
-import AuthForm from '../components/AuthForm';
+import {flex_center} from '../constants';
+import LoginForm from '../components/Forms/LoginForm';
 
 type formData = {
   email: string;
   password: string;
 };
 
-export const AuthScreen = () => {
+export const LoginScreen = () => {
   const [loading, setLoading] = React.useState(false);
   const {login} = useAuthStore();
 
-  async function signUpWithEmail(data: formData) {
+  async function signIn(data: formData) {
     setLoading(true);
     const {
       data: {session},
@@ -32,17 +31,15 @@ export const AuthScreen = () => {
       Alert.alert('Please check your inbox for email verification!');
     }
     if (session) {
-      login();
+      console.log(session, 'logged in');
+      login(session.access_token);
     }
     setLoading(false);
   }
 
   return (
     <SafeAreaView style={flex_center}>
-      <View style={{marginBottom: margin.large}}>
-        <Logo />
-      </View>
-      <AuthForm loading={loading} submit={signUpWithEmail} />
+      <LoginForm loading={loading} submit={signIn} />
     </SafeAreaView>
   );
 };

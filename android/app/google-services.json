@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "949890008585",
+    "project_id": "shopsync-28060",
+    "storage_bucket": "shopsync-28060.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:949890008585:android:cfa97f15cc8256db2f9ad8",
+        "android_client_info": {
+          "package_name": "com.shopsyncapp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDjrGhbjTtqEEBFOSwupHT0oUTh60h0PZc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

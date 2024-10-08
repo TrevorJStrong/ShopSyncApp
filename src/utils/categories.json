@@ -1,0 +1,43 @@
+[
+    {
+      "id": 1,
+      "category": "Fruits & Vegetables"
+    },
+    {
+      "id": 2,
+      "category": "Dairy & Eggs"
+    },
+    {
+      "id": 3,
+      "category": "Meat & Seafood"
+    },
+    {
+      "id": 4,
+      "category": "Bakery"
+    },
+    {
+      "id": 5,
+      "category": "Beverages"
+    },
+    {
+      "id": 6,
+      "category": "Snacks"
+    },
+    {
+      "id": 7,
+      "category": "Frozen Foods"
+    },
+    {
+      "id": 8,
+      "category": "Pantry Staples"
+    },
+    {
+      "id": 9,
+      "category": "Household Items"
+    },
+    {
+      "id": 10,
+      "category": "Personal Care"
+    }
+]
+  
