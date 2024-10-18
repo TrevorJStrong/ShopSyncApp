@@ -1,6 +1,5 @@
 import React from 'react';
 import {
-  FlatList,
   Pressable,
   SafeAreaView,
   ScrollView,
@@ -16,6 +15,7 @@ import CreateListForm from '../components/CreateListForm';
 import CustomButton from '../components/Shared/Button';
 import {ViewComponent} from '../components/Shared/View';
 import LoadingIndicator from '../components/LoadingIndicator';
+import {queryClient} from '../../queryClient';
 
 const fetchSingleShoppingList = async (id: number) => {
   const {data: shopping_list, error} = await supabase
@@ -68,6 +68,38 @@ export const SingleShopListScreen = ({route}) => {
     );
   }
 
+  const itemChecked = (item: any) => {
+    const updatedList = shoppingListData[0].list.map((listItem: any) => {
+      if (listItem.id === item.id) {
+        return {
+          ...listItem,
+          checked: !listItem.checked,
+        };
+      }
+      return listItem;
+    });
+    supabase
+      .from('shopping_lists')
+      .update({list: updatedList})
+      .eq('id', shoppingListId)
+      .then(() => {
+        queryClient.invalidateQueries(['shopping_lists', shoppingListId]);
+      });
+  };
+
+  const deleteItem = async (id: number) => {
+    const updatedList = shoppingListData[0].list.filter(
+      (listItem: any) => listItem.id !== id,
+    );
+    supabase
+      .from('shopping_lists')
+      .update({list: updatedList})
+      .eq('id', shoppingListId)
+      .then(() => {
+        queryClient.invalidateQueries(['shopping_lists', shoppingListId]);
+      });
+  };
+
   return (
     <SafeAreaView style={styles.container}>
       <ScrollView>
@@ -87,8 +119,12 @@ export const SingleShopListScreen = ({route}) => {
                 <View key={item.id} style={styles.item}>
                   <TextComponent text={item.name} />
                   <View style={styles.itemOptions}>
-                    <TextComponent text="Done" />
-                    <TextComponent text="Delete" />
+                    <Pressable onPress={() => itemChecked(item)}>
+                      <TextComponent text={item.checked ? '✅' : '❌'} />
+                    </Pressable>
+                    <Pressable onPress={() => deleteItem(item.id)}>
+                      <TextComponent text="Delete" />
+                    </Pressable>
                   </View>
                 </View>
               ))}

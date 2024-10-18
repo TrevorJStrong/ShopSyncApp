@@ -1,43 +1,54 @@
 [
-    {
-      "id": 1,
-      "category": "Fruits & Vegetables"
-    },
-    {
-      "id": 2,
-      "category": "Dairy & Eggs"
-    },
-    {
-      "id": 3,
-      "category": "Meat & Seafood"
-    },
-    {
-      "id": 4,
-      "category": "Bakery"
-    },
-    {
-      "id": 5,
-      "category": "Beverages"
-    },
-    {
-      "id": 6,
-      "category": "Snacks"
-    },
-    {
-      "id": 7,
-      "category": "Frozen Foods"
-    },
-    {
-      "id": 8,
-      "category": "Pantry Staples"
-    },
-    {
-      "id": 9,
-      "category": "Household Items"
-    },
-    {
-      "id": 10,
-      "category": "Personal Care"
-    }
+  {
+    "id": 1,
+    "category": "Fruits & Vegetables"
+  },
+  {
+    "id": 2,
+    "category": "Dairy & Eggs"
+  },
+  {
+    "id": 3,
+    "category": "Meat & Seafood"
+  },
+  {
+    "id": 4,
+    "category": "Bakery"
+  },
+  {
+    "id": 5,
+    "category": "Beverages"
+  },
+  {
+    "id": 6,
+    "category": "Snacks"
+  },
+  {
+    "id": 7,
+    "category": "Frozen Foods"
+  },
+  {
+    "id": 8,
+    "category": "Health & Beauty"
+  },
+  {
+    "id": 9,
+    "category": "Cleaning Supplies"
+  },
+  {
+    "id": 10,
+    "category": "Pet Supplies"
+  },
+  {
+    "id": 11,
+    "category": "Sports & Outdoors"
+  },
+  {
+    "id": 12,
+    "category": "Home & Kitchen"
+  },
+  {
+    "id": 13,
+    "category": "Electronics"
+  }
 ]
-  
