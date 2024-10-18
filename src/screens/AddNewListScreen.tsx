@@ -6,15 +6,29 @@ import CustomInput from '../components/Shared/Input';
 import CustomButton from '../components/Shared/Button';
 import {align_middle} from '../constants';
 import {createList} from '../services/createList';
+import {useNavigation} from '@react-navigation/native';
+import {queryClient} from '../../queryClient';
 type formData = {
   listName: string;
 };
 
 const AddNewListScreen = () => {
   const {control, handleSubmit} = useForm();
+  const [loading, setLoading] = React.useState(false);
 
-  const onSubmit = (data: formData) => {
-    createList(data);
+  const navigation = useNavigation();
+
+  const onSubmit = async (data: formData) => {
+    setLoading(true);
+    try {
+      await createList(data);
+      queryClient.refetchQueries(['shopping_lists'] as any);
+      navigation.navigate('ShoppingLists');
+      setLoading(false);
+    } catch (error) {
+      console.log(error);
+      setLoading(false);
+    }
   };
 
   return (
@@ -40,6 +54,7 @@ const AddNewListScreen = () => {
         title="Create List"
         onPress={handleSubmit(onSubmit)}
         w={'90%'}
+        loading={loading}
         mb={30}
       />
     </SafeAreaView>

@@ -10,4 +10,6 @@ export const createList = async (data: any) => {
   if (error) {
     throw new Error(error.message);
   }
+
+  return true;
 };

@@ -1,8 +1,9 @@
 import React from 'react';
-import {Text} from 'react-native';
+import {StyleSheet, Text} from 'react-native';
 
 import {colours, font_sizes} from '../../constants';
 import {TextProps} from './types';
+import {fontWeights} from '../../constants';
 
 export const TextComponent = ({
   text,
@@ -10,6 +11,7 @@ export const TextComponent = ({
   size = 'base',
   color = colours.primary,
   align = 'left',
+  weight = 'regular',
   testId = 'text',
 }: TextProps) => {
   return (
@@ -17,8 +19,8 @@ export const TextComponent = ({
       style={{
         ...style,
         fontSize: font_sizes[size],
+        fontFamily: styles[weight as keyof typeof styles].fontFamily,
         color: color,
-        fontFamily: 'Montserrat-Regular',
         textAlign: align,
       }}
       testID={testId}>
@@ -26,3 +28,12 @@ export const TextComponent = ({
     </Text>
   );
 };
+
+const styles = StyleSheet.create({
+  regular: {
+    fontFamily: fontWeights.regular,
+  },
+  bold: {
+    fontFamily: fontWeights.semiBold,
+  },
+});

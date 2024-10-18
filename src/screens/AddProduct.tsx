@@ -10,7 +10,7 @@ import DropDownPicker from 'react-native-dropdown-picker';
 import categories from '../utils/categories.json';
 import CustomButton from '../components/Shared/Button';
 import {supabase} from '../utils/supabase';
-import {useShoppingList} from '../services/getShoppingList';
+import {useShoppingList} from '../hooks/useGetShoppingList';
 import {Controller, useForm} from 'react-hook-form';
 import {queryClient} from '../../queryClient';
 
